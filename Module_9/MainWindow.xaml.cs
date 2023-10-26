@@ -26,18 +26,52 @@ namespace Module_9
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
-            // Создание новой задачи
-            AddWindow addWindow = new AddWindow();
-            addWindow.ShowDialog();
-                        
-            // Добавление новой задачи в коллекцию задач
-            tasks.Add(addWindow.newTask);
-            taskListView.ItemsSource = tasks;
-            taskListView.Items.Refresh();
+            Task taskToEdit = null; // Здесь можно создать пустую задачу по умолчанию
+            AddEditWindow addEditWindow = new AddEditWindow(taskToEdit);
+            addEditWindow.ShowDialog();
+
+            if (addEditWindow.DialogResult == true)
+            {
+                // Если результат окна равен true (значит, пользователь нажал "Сохранить" в окне)
+                if (taskToEdit == null)
+                {
+                    // Создаем новую задачу, только если taskToEdit пустой
+                    tasks.Add(addEditWindow.newTask);
+                }
+                else
+                {
+                    // Иначе обновляем существующую задачу
+                    taskToEdit.Title = addEditWindow.newTask.Title;
+                    taskToEdit.Priority = addEditWindow.newTask.Priority;
+                    taskToEdit.DueDate = addEditWindow.newTask.DueDate;
+                    taskToEdit.ProgressCompleted = addEditWindow.newTask.ProgressCompleted;
+                }
+
+                taskListView.Items.Refresh();
+            }
         }
         private void EditMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            if (taskListView.SelectedItem != null)
+            { 
+                Task selectedTask = (Task)taskListView.SelectedItem;
 
+                // Открываем окно редактирования задачи и передаем выбранную задачу
+                AddEditWindow editWindow = new AddEditWindow(selectedTask);
+                if (editWindow.ShowDialog() == true)
+                {
+                    // Обновляем выбранную задачу после редактирования
+                    selectedTask.Title = editWindow.newTask.Title;
+                    selectedTask.Priority = editWindow.newTask.Priority;
+                    selectedTask.DueDate = editWindow.newTask.DueDate;
+                    selectedTask.ProgressCompleted = editWindow.newTask.ProgressCompleted;
+                }
+                taskListView.Items.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите задачу для редактирования");
+            }
         }
 
         private void DeleteMenuItem_Click(object sender, RoutedEventArgs e)

@@ -66,11 +66,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddWindow.xaml.cs">
-      <DependentUpon>AddWindow.xaml</DependentUpon>
+    <Compile Include="AddEditWindow.xaml.cs">
+      <DependentUpon>AddEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Task.cs" />
-    <Page Include="AddWindow.xaml">
+    <Page Include="AddEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
