@@ -1,0 +1,38 @@
+﻿<Window x:Class="Module_9.AddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Module_9"
+        mc:Ignorable="d"
+        MinHeight="200" MinWidth="470" MaxHeight="220" MaxWidth="470" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FF704CEB">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30px"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140px"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Название:" Grid.Row="0" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
+        <TextBox Name="titleTextBox" Width="300" Height="30" Grid.Row="0" Grid.Column="1" Foreground="White" FontFamily="Arial Bold"/>
+
+        <Label Content="Приоритет:" Grid.Row="2" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
+        <TextBox Name="priorityTextBox" Width="300" Height="30" Grid.Row="2" Grid.Column="1" Foreground="White" FontFamily="Arial Bold"/>
+
+        <Label Content="Сроки выполнения:" Grid.Row="3" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
+        <DatePicker Name="dateDatePicker" Width="300" Height="30" Grid.Row="3" Grid.Column="1" Foreground="DarkRed" FontFamily="Arial Bold"/>
+
+        <Label Content="Прогресс задачи:" Grid.Row="4" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
+        <TextBox Name="progressTextBox" Width="300" Height="30" Grid.Row="4" Grid.Column="1" Foreground="White" FontFamily="Arial Bold"/>
+
+        <!-- Кнопка для сохранения контакта -->
+        <Button Content="Сохранить" Name="aveButton" Width="110" Height="30" HorizontalAlignment="Center" Margin="0,20" Grid.Row="8" Click="SaveButton_Click"/>
+    </Grid>
+</Window>
