@@ -14,7 +14,7 @@ namespace Module_9
         {
             this.tasks = tasks;
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMinutes(1); // Таймер с интервалом в 1 минуту
+            timer.Interval = TimeSpan.FromDays(1); // Таймер с интервалом в 1 день
             timer.Tick += CheckTaskDeadlines;
             timer.Start();
         }
@@ -25,7 +25,7 @@ namespace Module_9
 
             foreach (Task task in tasks)
             {
-                TimeSpan timeRemaining = task.DueDate - now;
+                TimeSpan timeRemaining = task.DueDate - now; // Вычисление времени 
 
                 if (timeRemaining.TotalMinutes > 0 && timeRemaining.TotalMinutes <= 1440) // Менее 24 часов (1 день)
                 {

@@ -23,6 +23,7 @@ namespace Module_9
         {
             InitializeComponent();
             taskListView.ItemsSource = tasks;
+            TaskReminder taskReminder = new TaskReminder(tasks);
         }
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
