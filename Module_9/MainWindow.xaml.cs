@@ -77,10 +77,24 @@ namespace Module_9
                 MessageBox.Show("Пожалуйста, выберите задачу для редактирования");
             }
         }
-
         private void DeleteMenuItem_Click(object sender, RoutedEventArgs e)
         {
+            if (taskListView.SelectedItem != null)
+            {
+                Task selectedTask = (Task)taskListView.SelectedItem;
 
+                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить эту задачу?", "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    tasks.Remove(selectedTask);
+                    taskListView.Items.Refresh();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите задачу для удаления");
+            }
         }
+
     }
 }
