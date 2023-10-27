@@ -66,11 +66,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddEditWindow.xaml.cs">
+    <Compile Include="Окна\AddEditWindow.xaml.cs">
       <DependentUpon>AddEditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Task.cs" />
-    <Page Include="AddEditWindow.xaml">
+    <Compile Include="Окна\EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Классы\Task.cs" />
+    <Page Include="Окна\AddEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Окна\EditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

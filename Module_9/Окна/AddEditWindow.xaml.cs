@@ -17,6 +17,7 @@ namespace Module_9
     public partial class AddEditWindow : Window
     {
         public Task newTask { get; set; }
+        public event Action<Task> TaskUpdated;
 
         public AddEditWindow(Task taskToEdit)
         {
@@ -52,7 +53,10 @@ namespace Module_9
                 newTask.DueDate = DueDate;
                 newTask.ProgressCompleted = ProgressCompleted;
 
-                DialogResult = true;
+                // Вызываем событие TaskUpdated и передаем обновленную задачу
+                TaskUpdated?.Invoke(newTask);
+
+                DialogResult = true; // Устанавливаем DialogResult в true
             }
         }
     }

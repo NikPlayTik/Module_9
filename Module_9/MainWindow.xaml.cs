@@ -22,50 +22,54 @@ namespace Module_9
         public MainWindow()
         {
             InitializeComponent();
+            taskListView.ItemsSource = tasks;
         }
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
             Task taskToEdit = null; // Здесь можно создать пустую задачу по умолчанию
             AddEditWindow addEditWindow = new AddEditWindow(taskToEdit);
-            addEditWindow.ShowDialog();
 
-            if (addEditWindow.DialogResult == true)
+            // Обработчик события TaskUpdated
+            addEditWindow.TaskUpdated += updatedTask =>
             {
-                // Если результат окна равен true (значит, пользователь нажал "Сохранить" в окне)
                 if (taskToEdit == null)
                 {
                     // Создаем новую задачу, только если taskToEdit пустой
-                    tasks.Add(addEditWindow.newTask);
+                    tasks.Add(updatedTask);
                 }
                 else
                 {
                     // Иначе обновляем существующую задачу
-                    taskToEdit.Title = addEditWindow.newTask.Title;
-                    taskToEdit.Priority = addEditWindow.newTask.Priority;
-                    taskToEdit.DueDate = addEditWindow.newTask.DueDate;
-                    taskToEdit.ProgressCompleted = addEditWindow.newTask.ProgressCompleted;
+                    taskToEdit.Title = updatedTask.Title;
+                    taskToEdit.Priority = updatedTask.Priority;
+                    taskToEdit.DueDate = updatedTask.DueDate;
+                    taskToEdit.ProgressCompleted = updatedTask.ProgressCompleted;
                 }
 
                 taskListView.Items.Refresh();
-            }
+            };
+
+            addEditWindow.ShowDialog();
         }
         private void EditMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (taskListView.SelectedItem != null)
-            { 
+            {
                 Task selectedTask = (Task)taskListView.SelectedItem;
 
                 // Открываем окно редактирования задачи и передаем выбранную задачу
-                AddEditWindow editWindow = new AddEditWindow(selectedTask);
+                EditWindow editWindow = new EditWindow(selectedTask);
+
                 if (editWindow.ShowDialog() == true)
                 {
                     // Обновляем выбранную задачу после редактирования
-                    selectedTask.Title = editWindow.newTask.Title;
-                    selectedTask.Priority = editWindow.newTask.Priority;
-                    selectedTask.DueDate = editWindow.newTask.DueDate;
-                    selectedTask.ProgressCompleted = editWindow.newTask.ProgressCompleted;
+                    selectedTask.Title = editWindow.EditedTask.Title;
+                    selectedTask.Priority = editWindow.EditedTask.Priority;
+                    selectedTask.DueDate = editWindow.EditedTask.DueDate;
+                    selectedTask.ProgressCompleted = editWindow.EditedTask.ProgressCompleted;
                 }
+
                 taskListView.Items.Refresh();
             }
             else

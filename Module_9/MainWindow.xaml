@@ -30,7 +30,7 @@
                     <GridView>
                         <GridViewColumn Header="Название" Width="200" DisplayMemberBinding="{Binding Title}" />
                         <GridViewColumn Header="Приоритет" Width="180" DisplayMemberBinding="{Binding Priority}" />
-                        <GridViewColumn Header="Дата выполнения" Width="220" DisplayMemberBinding="{Binding DueDate}" />
+                        <GridViewColumn Header="Дата выполнения" Width="220" DisplayMemberBinding="{Binding DueDate, StringFormat=\{0:dd.MM.yyyy\}}" />
                         <GridViewColumn Header="Прогресс" Width="180" DisplayMemberBinding="{Binding ProgressCompleted}"/>
                     </GridView>
                 </ListView.View>
