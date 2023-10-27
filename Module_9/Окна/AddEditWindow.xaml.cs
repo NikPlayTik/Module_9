@@ -38,9 +38,9 @@ namespace Module_9
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             string Title = titleTextBox.Text;
-            string Priority = priorityTextBox.Text;
+            string Priority = priorityComboBox.Text;
             DateTime DueDate = dateDatePicker.SelectedDate ?? DateTime.MinValue;
-            string ProgressCompleted = progressTextBox.Text;
+            string ProgressCompleted = progressComboBox.Text;
 
             if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Priority) || DueDate == DateTime.MinValue || string.IsNullOrWhiteSpace(ProgressCompleted))
             {

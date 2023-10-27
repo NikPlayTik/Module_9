@@ -21,16 +21,26 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Название:" Grid.Row="0" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
-        <TextBox Name="titleTextBox" Width="300" Height="15" Grid.Row="0" Grid.Column="1" Foreground="White" FontFamily="Arial Bold" Margin="15, 9, 0, 0"/>
+        <TextBox Name="titleTextBox" Width="300" Height="30" Grid.Row="0" Grid.Column="1" Foreground="White" FontFamily="Arial Bold"/>
 
         <Label Content="Приоритет:" Grid.Row="2" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
-        <TextBox Name="priorityTextBox" Width="300" Height="15" Grid.Row="2" Grid.Column="1" Foreground="White" FontFamily="Arial Bold" Margin="15, 14, 0, 0"/>
+        <ComboBox Name="priorityComboBox" Width="300" Height="30" Grid.Row="2" Grid.Column="1" Foreground="DarkRed" FontFamily="Arial Bold">
+            <ComboBoxItem>Высокий</ComboBoxItem>
+            <ComboBoxItem>Средний</ComboBoxItem>
+            <ComboBoxItem>Низкий</ComboBoxItem>
+        </ComboBox>
 
         <Label Content="Сроки выполнения:" Grid.Row="3" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
-        <DatePicker Name="dateDatePicker" Width="300" Height="20" Grid.Row="3" Grid.Column="1" Foreground="DarkRed" FontFamily="Arial Bold" Margin="15, 9, 0, 0"/>
+        <DatePicker Name="dateDatePicker" Width="300" Height="20" Grid.Row="3" Grid.Column="1" Foreground="DarkRed" FontFamily="Arial Bold"/>
 
         <Label Content="Прогресс задачи:" Grid.Row="4" Foreground="White" FontFamily="Arial Bold" Margin="10, 10, 1, 1"/>
-        <TextBox Name="progressTextBox" Width="300" Height="15" Grid.Row="4" Grid.Column="1" Foreground="White" FontFamily="Arial Bold" Margin="15, 14, 0, 0"/>
+        <ComboBox Name="progressComboBox" Width="300" Height="30" Grid.Row="4" Grid.Column="1" Foreground="DarkRed" FontFamily="Arial Bold">
+            <ComboBoxItem>0%</ComboBoxItem>
+            <ComboBoxItem>25%</ComboBoxItem>
+            <ComboBoxItem>50%</ComboBoxItem>
+            <ComboBoxItem>75%</ComboBoxItem>
+            <ComboBoxItem>100%</ComboBoxItem>
+        </ComboBox>
 
         <!-- Кнопка для сохранения контакта -->
         <Button Content="Сохранить" Name="saveButton" Width="110" Height="30" HorizontalAlignment="Center" Margin="0,20" Grid.Row="8" Click="SaveButton_Click"/>
