@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Module_9"
         mc:Ignorable="d"
-        Title="Task Manager" Height="350" Width="750">
+        Title="Task Manager" Height="350" Width="750" Icon="Иконка.png">
     <Grid Background="#E53DDDBA">
         <!-- Определение колонок и строк для масштабирования -->
         <Grid.ColumnDefinitions>

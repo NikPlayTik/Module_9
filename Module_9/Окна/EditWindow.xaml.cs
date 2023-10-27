@@ -29,9 +29,9 @@ namespace Module_9
             {
                 EditedTask = taskToEdit;
                 titleTextBox.Text = taskToEdit.Title;
-                priorityTextBox.Text = taskToEdit.Priority;
+                priorityComboBox.Text = taskToEdit.Priority;
                 dateDatePicker.SelectedDate = taskToEdit.DueDate;
-                progressTextBox.Text = taskToEdit.ProgressCompleted;
+                progressComboBox.Text = taskToEdit.ProgressCompleted;
             }
         }
 
@@ -39,9 +39,9 @@ namespace Module_9
         {
             // Обновляем свойства задачи данными из текстовых полей
             EditedTask.Title = titleTextBox.Text;
-            EditedTask.Priority = priorityTextBox.Text;
+            EditedTask.Priority = priorityComboBox.Text;
             EditedTask.DueDate = dateDatePicker.SelectedDate ?? DateTime.MinValue;
-            EditedTask.ProgressCompleted = progressTextBox.Text;
+            EditedTask.ProgressCompleted = progressComboBox.Text;
 
             DialogResult = true; // Устанавливаем DialogResult в true
             Close(); // Закрываем окно
